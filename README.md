@@ -1,2 +1,1 @@
-# EpicSeven-Gear-Crafting
-a
+Simple gear search tool for crafting made for a friend, takes up JSON files and searches for a few info.
