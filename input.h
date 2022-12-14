@@ -15,7 +15,6 @@ public: // data
     std::string type;
     std::string main;
     std::string sub;
-
 private: // members
     auto user_input(const std::vector<std::string> &compare)
     {
@@ -55,7 +54,7 @@ public: // constructors
         : set(std::string()), type(std::string()), main(std::string()), sub(std::string()) {}
 
     input(const nlohmann::json &itens)
-        : set(std::string()), type(std::string()), main(std::string()), sub(std::string()){}
+        : set(std::string()), type(std::string()), main(std::string()), sub(std::string())
     {
         // lazy
         std::cout << "type:" << std::endl;

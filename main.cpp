@@ -5,7 +5,7 @@ int main()
 
     // TODO read cli args
     
-    // load files
+    // load files 
     auto item_data = nlohmann::json::parse(std::ifstream("res/Dados_Itens.json"));
     auto personages = nlohmann::json::parse(std::ifstream("res/Dados.json"));
     
@@ -16,7 +16,7 @@ int main()
         auto results = neto::search(item, personages); 
         for(auto it = results.begin(); it != results.end(); ++it)
         {
-            std::cout << *it;
+            std::cout << *it << std::endl;
         }
         std::cout << "continue?" << std::endl;
         if(io::input<std::string, char>() != "yes")
