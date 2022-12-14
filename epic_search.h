@@ -33,7 +33,7 @@ inline std::basic_ostream<char_type>& operator<<(std::basic_ostream<char_type>& 
 std::vector<search_result> search(const input& item, const nlohmann::json& personages)
 {
     std::vector<search_result> results;
-    
+    int counter = 0;
         // cringe warnning
 
     // personagem >> builds >> sets >> itens main stat >> item sub stat 
@@ -53,12 +53,16 @@ std::vector<search_result> search(const input& item, const nlohmann::json& perso
                         {
                             for(auto sub_it = (*bui_it)[item.type]["sub_stat"].begin(); sub_it != (*bui_it)[item.type]["sub_stat"].end(); ++sub_it)
                             {
-                                if(item.sub == *sub_it)
-                                {
-                                    results.emplace_back((*bui_it)["Nome"], (*per_it)["Nome"]);
-                                    break;
+                                if(item.sub1 == *sub_it || item.sub2 == *sub_it || item.sub3 == *sub_it )
+                                {    
+                                    ++counter;
                                 }
                             }
+                            if(counter >= 3)
+                            {
+                                results.emplace_back((*bui_it)["Nome"], (*per_it)["Nome"]);
+                            }
+                            counter = 0;
                             break;
                         }
                     }

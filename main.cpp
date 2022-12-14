@@ -13,16 +13,24 @@ int main()
     while(true)
     {
         neto::input item(item_data);
-        auto results = neto::search(item, personages); 
-        for(auto it = results.begin(); it != results.end(); ++it)
+        auto results = neto::search(item, personages);
+        if(results.empty())
         {
-            std::cout << *it << std::endl;
+            std::cout << "no results found" << std::endl;
         }
+        else
+        {
+            std::cout << "results: " << std::endl;
+            for(auto it = results.begin(); it != results.end(); ++it)
+            {
+                std::cout << *it << std::endl;
+            }
+        }
+        
         std::cout << "continue?" << std::endl;
         if(io::input<std::string, char>() != "yes")
         {
             break;
         }
-        system("clear");
     }
 }
